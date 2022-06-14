@@ -1,0 +1,37 @@
+DROP TABLE IF EXISTS [SUPPLY_COMMIT].[RISKLESS_FLAG];
+
+SELECT
+
+a.SKU_10D,
+a.MARKET,
+a.CYCLE,
+a.RUN_TYPE,
+CASE
+	WHEN a.ON_TIME = a.DEMAND THEN 1
+	ELSE 0
+END RISKLESS_FLAG,
+getDate() as archLoadDate
+
+INTO [SC_PLN_DS].[SUPPLY_COMMIT].[RISKLESS_FLAG]
+FROM (
+
+			SELECT
+
+			a.[Material] AS SKU_10D,
+			a.MARKET,
+			a.CYCLE,
+			a.RUN_TYPE,
+			SUM(a.[On Time Quantity Proportion]) AS ON_TIME,
+			SUM(a.[Demand Qty Proportion]) AS DEMAND
+
+			FROM [SC_PLN_DS].[SUPPLY_COMMIT].[DEMAND_SUPPORTABILITY] a
+
+			GROUP BY
+
+			a.[Material],
+			a.MARKET,
+			a.CYCLE,
+			a.RUN_TYPE
+
+		) a
+;

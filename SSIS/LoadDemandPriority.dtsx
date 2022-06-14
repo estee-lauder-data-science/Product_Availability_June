@@ -1,0 +1,678 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/17/2022 1:28:29 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="US-AZR-BIA01"
+  DTS:CreatorName="AM\molenich"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{0E5DC68E-8D52-45B3-AE8F-B68A7B2FF602}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.5659.1"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="LoadDemandPriority_New"
+  DTS:ProtectionLevel="0"
+  DTS:VersionGUID="{56EDF357-BD50-4846-BD01-7DE6B83A4FDC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F715CDB0-0422-45DB-96E3-7BB527B599C3}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=US-THT-NEMESIS1;Initial Catalog=SC_PLN_DS;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{6140BF20-4FC8-4387-AD83-53F5DE52E81B}"
+      DTS:ObjectName="SourceConnectionFlatFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Projects\Data_Science\Projects\Product_Availability\Data\Demand_Priority.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="itemgrp"
+              DTS:DTSID="{B84AC6E7-BF33-4FF2-A62C-09EA2E8B0B8E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="material"
+              DTS:DTSID="{EF13721B-1C48-43EB-AF3E-FC1961FAE643}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="location"
+              DTS:DTSID="{8904D4FB-BC1B-4F18-A6B7-D59248710D73}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="market"
+              DTS:DTSID="{7140BA4F-2AED-422E-92E3-B110FAB2E5E1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fiscal week"
+              DTS:DTSID="{D227E9C2-E653-4455-B5C6-4644401E808F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="demand_id"
+              DTS:DTSID="{74087B94-8E15-4E8D-A9A9-28F543893561}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="demandType"
+              DTS:DTSID="{250419F0-7A9B-4C2E-BCA6-6C342561BE2A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Demand_priority"
+              DTS:DTSID="{40F98CAA-8B4E-4A78-A58A-493AD3589EF3}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{AA70DFC7-2576-4A9B-8688-2B20E9243EDB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - DEMAND_PRIORITY"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[SUPPLY_COMMIT].[DEMAND_PRIORITY]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].Columns[itemgrp]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="itemgrp"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[SCSItem  ItemGroup ]"
+                      lineageId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[itemgrp]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].Columns[material]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="material"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[SCSItem  Item ]"
+                      lineageId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[material]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].Columns[location]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="location"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[SCSLocation  Location ]"
+                      lineageId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[location]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].Columns[market]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="market"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[SalesAccount  ReportingCustomer ]"
+                      lineageId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[market]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].Columns[Fiscal week]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Fiscal week"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[Time  FiscalWeek ]"
+                      lineageId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[Fiscal week]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].Columns[demand_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="demand_id"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[SCSDemand  DemandID ]"
+                      lineageId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[demand_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].Columns[demandType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="demandType"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[SCSDemandType  DemandType ]"
+                      lineageId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[demandType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].Columns[Demand_priority]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Demand_priority"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[SCPDemandPriorityGDPForUI]"
+                      lineageId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[Demand_priority]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[SCSItem  ItemGroup ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SCSItem  ItemGroup " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[SCSItem  Item ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SCSItem  Item " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[SCSLocation  Location ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SCSLocation  Location " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[SalesAccount  ReportingCustomer ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SalesAccount  ReportingCustomer " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[Time  FiscalWeekKey ]"
+                      dataType="dbTimeStamp"
+                      name="Time  FiscalWeekKey " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[Time  FiscalWeek ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Time  FiscalWeek " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[SCSDemand  DemandID ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SCSDemand  DemandID " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[SCSDemandType  DemandType ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SCSDemandType  DemandType " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[DemandSupplyWeekKey_CRSM]"
+                      dataType="dbTimeStamp"
+                      name="DemandSupplyWeekKey_CRSM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[SCPDemandPriorityGDPForUI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="SCPDemandPriorityGDPForUI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[CYCLE]"
+                      dataType="dbDate"
+                      name="CYCLE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[RUN_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="RUN_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input].ExternalColumns[archLoadDate]"
+                      dataType="dbTimeStamp"
+                      name="archLoadDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - Demand_Priority_csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Source - Demand_Priority_csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[itemgrp]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].ExternalColumns[itemgrp]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[itemgrp]"
+                      name="itemgrp"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[material]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].ExternalColumns[material]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[material]"
+                      name="material"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[location]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].ExternalColumns[location]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[location]"
+                      name="location"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[market]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].ExternalColumns[market]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[market]"
+                      name="market"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[Fiscal week]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].ExternalColumns[Fiscal week]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[Fiscal week]"
+                      name="Fiscal week"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[demand_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].ExternalColumns[demand_id]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[demand_id]"
+                      name="demand_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[demandType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].ExternalColumns[demandType]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[demandType]"
+                      name="demandType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[Demand_priority]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].ExternalColumns[Demand_priority]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].Columns[Demand_priority]"
+                      name="Demand_priority"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].ExternalColumns[itemgrp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="itemgrp" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].ExternalColumns[material]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="material" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].ExternalColumns[location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="location" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].ExternalColumns[market]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="market" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].ExternalColumns[Fiscal week]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Fiscal week" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].ExternalColumns[demand_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="demand_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].ExternalColumns[demandType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="demandType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output].ExternalColumns[Demand_priority]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Demand_priority" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task 1\Destination - DEMAND_PRIORITY.Inputs[Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task 1\Source - Demand_Priority_csv.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+</DTS:Executable>

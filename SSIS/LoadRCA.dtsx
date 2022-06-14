@@ -1,0 +1,994 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/17/2022 11:17:04 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="US-AZR-BIA01"
+  DTS:CreatorName="AM\molenich"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{DECD13B6-A1E4-4DDB-8DFE-9484F149BAF6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.5659.1"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="LoadRCA"
+  DTS:ProtectionLevel="0"
+  DTS:VersionGUID="{AE6D03D0-E283-43A9-B528-35356B2D0316}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8120A4F8-D9E3-4C86-84EF-67951380EBA6}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=US-THT-NEMESIS1;Initial Catalog=SC_PLN_DS;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{6A99900A-0F7D-4DA7-943F-B7D4499170B5}"
+      DTS:ObjectName="SourceConnectionFlatFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Projects\Data_Science\Projects\Product_Availability\Data\RCA_Pub_Result.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SKU_10D"
+              DTS:DTSID="{E9660348-B6B7-4855-B638-9CF8DF76BE51}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LOCATION"
+              DTS:DTSID="{3BC2498F-20D6-4857-9AC0-68BB8F743540}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FISCAL_MONTH"
+              DTS:DTSID="{930980A6-ACA6-4763-9992-25D4C49ABB94}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FISCAL_YEAR"
+              DTS:DTSID="{BA283201-B485-4E25-A225-D98C37E3273B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MARKET"
+              DTS:DTSID="{567A85BF-A5EC-4BEA-AA88-22C782FBDF9B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RUN_TYPE"
+              DTS:DTSID="{A169C7D5-2910-4AE6-9ED8-1BBD2B10016F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CYCLE"
+              DTS:DTSID="{F494682D-2E89-4D68-8099-3D85F3FB0B91}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DEMAND_PRIORITY_12D"
+              DTS:DTSID="{8CA6DD36-B66A-4C31-A977-B9715D6DCE2E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PRIMARY_RISK_UNITS"
+              DTS:DTSID="{278BF447-2BD7-436B-86EE-2809CAA9D880}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PRIMARY_RISK_UNITS_DRIVER"
+              DTS:DTSID="{8443D54A-6158-4D53-8A46-CE498EC85FD3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PRIMARY_RISK_DOLLARS"
+              DTS:DTSID="{E5383499-7BB3-47AC-B608-1A9E74D6C39D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PRIMARY_RISK_DOLLARS_DRIVER"
+              DTS:DTSID="{B56314F4-C354-421C-9FE9-37F0AAF1C9B1}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{1E326D47-6661-4886-8560-1CCBF7A9A839}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Data Conversion 0 - 0"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 0 - 0"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[CYCLE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CYCLE"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[CYCLE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[PRIMARY_RISK_UNITS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PRIMARY_RISK_UNITS"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[PRIMARY_RISK_UNITS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[PRIMARY_RISK_DOLLARS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PRIMARY_RISK_DOLLARS"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[PRIMARY_RISK_DOLLARS]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[CYCLE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[CYCLE]"
+                      name="CYCLE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[CYCLE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[PRIMARY_RISK_UNITS]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[PRIMARY_RISK_UNITS]"
+                      name="PRIMARY_RISK_UNITS"
+                      precision="28"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[PRIMARY_RISK_UNITS]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[PRIMARY_RISK_DOLLARS]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[PRIMARY_RISK_DOLLARS]"
+                      name="PRIMARY_RISK_DOLLARS"
+                      precision="28"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[PRIMARY_RISK_DOLLARS]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Destination - RCA"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - RCA"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[SUPPLY_COMMIT].[RCA]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - RCA.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].Columns[SKU_10D]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SKU_10D"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[SKU_10D]"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[SKU_10D]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].Columns[LOCATION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LOCATION"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[LOCATION]"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[LOCATION]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].Columns[FISCAL_MONTH]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FISCAL_MONTH"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[FISCAL_MONTH]"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[FISCAL_MONTH]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].Columns[FISCAL_YEAR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FISCAL_YEAR"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[FISCAL_YEAR]"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[FISCAL_YEAR]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].Columns[MARKET]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MARKET"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[MARKET]"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[MARKET]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].Columns[RUN_TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RUN_TYPE"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[RUN_TYPE]"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[RUN_TYPE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].Columns[CYCLE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CYCLE"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[CYCLE]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[CYCLE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].Columns[DEMAND_PRIORITY_12D]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DEMAND_PRIORITY_12D"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[DEMAND_PRIORITY_12D]"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[DEMAND_PRIORITY_12D]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].Columns[PRIMARY_RISK_UNITS]"
+                      cachedDataType="numeric"
+                      cachedName="PRIMARY_RISK_UNITS"
+                      cachedPrecision="28"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[PRIMARY_RISK_UNITS]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[PRIMARY_RISK_UNITS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].Columns[PRIMARY_RISK_UNITS_DRIVER]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PRIMARY_RISK_UNITS_DRIVER"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[PRIMARY_RISK_UNITS_DRIVER]"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[PRIMARY_RISK_UNITS_DRIVER]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].Columns[PRIMARY_RISK_DOLLARS]"
+                      cachedDataType="numeric"
+                      cachedName="PRIMARY_RISK_DOLLARS"
+                      cachedPrecision="28"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[PRIMARY_RISK_DOLLARS]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[PRIMARY_RISK_DOLLARS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].Columns[PRIMARY_RISK_DOLLARS_DRIVER]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PRIMARY_RISK_DOLLARS_DRIVER"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[PRIMARY_RISK_DOLLARS_DRIVER]"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[PRIMARY_RISK_DOLLARS_DRIVER]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[SKU_10D]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SKU_10D" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[LOCATION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LOCATION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[FISCAL_MONTH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FISCAL_MONTH" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[FISCAL_YEAR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FISCAL_YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[MARKET]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MARKET" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[RUN_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="RUN_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[CYCLE]"
+                      dataType="dbTimeStamp"
+                      name="CYCLE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[DEMAND_PRIORITY_12D]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="DEMAND_PRIORITY_12D" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[PRIMARY_RISK_UNITS]"
+                      dataType="numeric"
+                      name="PRIMARY_RISK_UNITS"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[PRIMARY_RISK_UNITS_DRIVER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PRIMARY_RISK_UNITS_DRIVER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[PRIMARY_RISK_DOLLARS]"
+                      dataType="numeric"
+                      name="PRIMARY_RISK_DOLLARS"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[PRIMARY_RISK_DOLLARS_DRIVER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PRIMARY_RISK_DOLLARS_DRIVER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input].ExternalColumns[archLoadDate]"
+                      dataType="dbTimeStamp"
+                      name="archLoadDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - RCA.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - RCA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - RCA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - RCA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Source - RCA_Pub_Result_csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[SKU_10D]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[SKU_10D]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[SKU_10D]"
+                      name="SKU_10D"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[LOCATION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[LOCATION]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[LOCATION]"
+                      name="LOCATION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[FISCAL_MONTH]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[FISCAL_MONTH]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[FISCAL_MONTH]"
+                      name="FISCAL_MONTH"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[FISCAL_YEAR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[FISCAL_YEAR]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[FISCAL_YEAR]"
+                      name="FISCAL_YEAR"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[MARKET]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[MARKET]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[MARKET]"
+                      name="MARKET"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[RUN_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[RUN_TYPE]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[RUN_TYPE]"
+                      name="RUN_TYPE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[CYCLE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[CYCLE]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[CYCLE]"
+                      name="CYCLE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[DEMAND_PRIORITY_12D]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[DEMAND_PRIORITY_12D]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[DEMAND_PRIORITY_12D]"
+                      name="DEMAND_PRIORITY_12D"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[PRIMARY_RISK_UNITS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[PRIMARY_RISK_UNITS]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[PRIMARY_RISK_UNITS]"
+                      name="PRIMARY_RISK_UNITS"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[PRIMARY_RISK_UNITS_DRIVER]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[PRIMARY_RISK_UNITS_DRIVER]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[PRIMARY_RISK_UNITS_DRIVER]"
+                      name="PRIMARY_RISK_UNITS_DRIVER"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[PRIMARY_RISK_DOLLARS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[PRIMARY_RISK_DOLLARS]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[PRIMARY_RISK_DOLLARS]"
+                      name="PRIMARY_RISK_DOLLARS"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[PRIMARY_RISK_DOLLARS_DRIVER]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[PRIMARY_RISK_DOLLARS_DRIVER]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].Columns[PRIMARY_RISK_DOLLARS_DRIVER]"
+                      name="PRIMARY_RISK_DOLLARS_DRIVER"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[SKU_10D]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SKU_10D" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[LOCATION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LOCATION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[FISCAL_MONTH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FISCAL_MONTH" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[FISCAL_YEAR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FISCAL_YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[MARKET]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MARKET" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[RUN_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="RUN_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[CYCLE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CYCLE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[DEMAND_PRIORITY_12D]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DEMAND_PRIORITY_12D" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[PRIMARY_RISK_UNITS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PRIMARY_RISK_UNITS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[PRIMARY_RISK_UNITS_DRIVER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PRIMARY_RISK_UNITS_DRIVER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[PRIMARY_RISK_DOLLARS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PRIMARY_RISK_DOLLARS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output].ExternalColumns[PRIMARY_RISK_DOLLARS_DRIVER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PRIMARY_RISK_DOLLARS_DRIVER" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task 1\Destination - RCA.Inputs[Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task 1.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task 1\Source - RCA_Pub_Result_csv.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+</DTS:Executable>

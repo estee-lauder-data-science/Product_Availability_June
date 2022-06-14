@@ -1,0 +1,9 @@
+There is no hardcoding. No changes to any files are needed each week.
+d
+get 4 zip files with Mondays date from:
+https://elcompanies.sharepoint.com/sites/EDLPhase-1sourcedE2EInterfaces/Shared%20Documents/Forms/AllItems.aspx?csf=1&web=1&e=GW1H3o&cid=8d4a29cb%2Da2d0%2D4f1b%2Db2a5%2D7eae53749f6b&RootFolder=%2Fsites%2FEDLPhase%2D1sourcedE2EInterfaces%2FShared%20Documents%2FO9%2FO9%2FDemand%5FSupportability&FolderCTID=0x012000AC33C81A39F3D04E975E446F6275022B
+
+
+Run 01_Controller. Run time is over 6 hours.
+An email is sent (address defined in the /Config/.config file) when the app starts and when it ends or when there is a failure/
+The main() function runs all steps. If you need to restart at step N, comment out the prior steps.

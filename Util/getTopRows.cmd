@@ -1,0 +1,1 @@
+powershell -command "& {get-content Demand_Supportability_All.csv|select-object -first 10}" > Demand_Supportability_All_Small.csv
